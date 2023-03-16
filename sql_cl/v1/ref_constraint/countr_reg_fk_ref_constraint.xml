@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+	<changeSet id="a1ac6651cca640937133a1aa27544319af6dade6" author="(DEV)-Generated"     >
+		<n0:createOracleRefConstraint objectName="COUNTR_REG_FK" objectType="REF_CONSTRAINT" ownerName="DEV"   >
+			<n0:source><![CDATA[
+  ALTER TABLE "DEV"."COUNTRIES" ADD CONSTRAINT "COUNTR_REG_FK" FOREIGN KEY ("REGION_ID")
+	  REFERENCES "DEV"."REGIONS" ("REGION_ID") ENABLE;]]></n0:source>
+		</n0:createOracleRefConstraint>
+	</changeSet>
+</databaseChangeLog>

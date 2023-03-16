@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+	<changeSet id="2ac7a86d32053a55e75b5a790d23a8e780542a90" author="(DEV)-Generated"     >
+		<n0:createOracleTrigger objectName="SECURE_REGIONS" objectType="TRIGGER" ownerName="DEV"   >
+			<n0:source><![CDATA[
+  CREATE OR REPLACE EDITIONABLE TRIGGER "DEV"."SECURE_REGIONS" 
+before insert or update or delete on regions
+begin
+   null;
+end secure_regions;
+
+/
+/
+ALTER TRIGGER "DEV"."SECURE_REGIONS" DISABLE;]]></n0:source>
+		</n0:createOracleTrigger>
+	</changeSet>
+</databaseChangeLog>

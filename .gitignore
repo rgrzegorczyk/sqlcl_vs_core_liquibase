@@ -1,0 +1,4 @@
+UAT_output.sql
+DEV_output.sql
+log_demo_sqlcl_liquibase.log
+log_demo_standalone_liquibase.log

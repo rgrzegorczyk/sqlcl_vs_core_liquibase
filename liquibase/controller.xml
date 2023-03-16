@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <!-- This file is a a main changelog. It's defined in liquibase.properties and uat.properties file (for standalone Liquibase) -->
+    <!-- It is also provided during execution of SQLcl Liquibase by providing parameter "changelog-file controller.xml"-->
+
+    <!-- Include specific files in provided order-->
+    <include file="/database/table/regions.sql"/>    
+    <include file="/database/table/countries.sql" />    
+    <include file="/database/table/application_params.sql" />    
+
+    <!-- Include all files from below locations. Only .sql extension files, executed alphabetically-->
+    <includeAll path="/database/ref_constraints"/>
+    <includeAll path="/database/procedure"/>
+
+    <!-- Include specific file which defines another files. Check /database/trigger/triggers.xml -->
+    <include file="/database/trigger/triggers.xml" />  
+
+    <!-- Include all files from below locations. Only .sql extension files, executed alphabetically-->
+    <includeAll path="/database/view"/>  
+    <!--includeAll path="/database/dml"/-->  <!-- It won't work because we changed regions.region_name datatype-->    
+
+    
+    <!-- Include specific file with APEX app. It was generated using SQLcl liquibase command SQLcl liquibase command  "generate-apex-object" -->
+    <!--uncomment line below if you have APEX workspace assigned with your DEV or/and UAT schemas -->
+
+    <!--include file="/apex/f200.xml" /-->  
+
+
+</databaseChangeLog>

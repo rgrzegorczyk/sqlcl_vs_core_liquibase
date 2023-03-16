@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+	<changeSet id="7e8bfea4ac3a6750e8611ddb05022786170c2ef6" author="(DEV)-Generated"     >
+		<n0:createOracleProcedure objectName="SECURE_DML" objectType="PROCEDURE" ownerName="DEV"   >
+			<n0:source><![CDATA[
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "DEV"."SECURE_DML" 
+is
+begin
+   if TO_CHAR(SYSDATE, 'HH24:MI') not between '08:00' and '18:00'
+      or TO_CHAR(SYSDATE, 'DY') in ('SAT', 'SUN')
+   then
+      RAISE_APPLICATION_ERROR(-20205,
+                              'You may only make changes during normal office hours');
+   end if;
+end secure_dml;
+/]]></n0:source>
+		</n0:createOracleProcedure>
+	</changeSet>
+</databaseChangeLog>
