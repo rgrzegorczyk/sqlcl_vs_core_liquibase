@@ -5,6 +5,10 @@
 	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
 	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+   <!-- custom script you would like to execute before creating/altering regions table-->
+   <include file="custom_scripts/pre_script.sql"/> 
+
 	<changeSet id="f549e64c5c7bd9023ce0bbe15168fb7da3d1a708" author="(DEV)-Generated"     >
 		<n0:createSxmlObject objectName="REGIONS" objectType="TABLE" ownerName="DEV"   >
 			<n0:source><![CDATA[
@@ -89,4 +93,12 @@
 </TABLE>]]></n0:source>
 		</n0:createSxmlObject>
 	</changeSet>
+
+   <changeSet  author="rgrzegorczyk"  id="insert_into_regions">
+      <sql dbms="oracle"
+            stripComments="true">
+       insert into regions (region_id, region_name) values (999,'test_region');
+   </sql>
+   </changeSet>
+
 </databaseChangeLog>
